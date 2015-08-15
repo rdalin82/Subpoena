@@ -25,6 +25,16 @@ class AttorneysController < ApplicationController
 		end 
 	end 
 
+	def edit 
+		@attorney = Attorney.find(params[:id])
+	end 
+
+	def update
+		@attorney = Attorney.find(params[:id])
+		@attorney.update!(attorney_params)
+		redirect_to attorneys_path
+	end 
+
 	private 
 
 	def attorney_params

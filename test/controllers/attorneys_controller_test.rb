@@ -35,4 +35,15 @@ class AttorneysControllerTest < ActionController::TestCase
    		assert_redirected_to attorneys_path
    	end 
    end
+   test "should get edit page" do 
+   	get :edit, id: @attorney
+   	assert_response :success
+   end 
+
+   test "should update article" do 
+   	patch :update, id: @attorney.id, attorney: {
+   		fax: "312-814-1154"
+   	}
+   	assert_redirected_to attorneys_path
+   end 
 end
