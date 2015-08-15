@@ -14,4 +14,9 @@ class ProvidersControllerTest < ActionController::TestCase
 		assert_response :success
 		assert_not_nil assigns(:providers)
 	end 
+
+	test "it should get a new template" do 
+		get :new 
+		assert_response :success
+	end 
 end 
