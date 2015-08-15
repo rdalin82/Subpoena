@@ -35,6 +35,12 @@ class AttorneysController < ApplicationController
 		redirect_to attorneys_path
 	end 
 
+	def destroy
+		@attorney = Attorney.find(params[:id])
+		@attorney.destroy!
+		redirect_to attorneys_path
+	end 
+
 	private 
 
 	def attorney_params

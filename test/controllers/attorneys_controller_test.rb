@@ -46,4 +46,11 @@ class AttorneysControllerTest < ActionController::TestCase
    	}
    	assert_redirected_to attorneys_path
    end 
+
+   test "should destroy new attorney" do 
+   	assert_difference('Attorney.count', -1) do 
+   		delete :destroy, id: @attorney.id
+   	end 
+   end 
+   	
 end

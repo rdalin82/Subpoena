@@ -1,15 +1,18 @@
 <h1>Attorneys</h1>
 
-<% @attorneys.each do |atty| %> 
+<% @attorneys.each do |attorney| %> 
 <li>
-<ul><%=atty.name%></ul>
-<ul><%=atty.address%></ul>
-<ul>Fax: <%=atty.fax%></ul>
-<ul>Phone: <%=atty.phone%></ul>
-<ul><%= link_to "Show", atty %></ul>
-
+<ul><%=attorney.name%></ul>
+<ul><%=attorney.address%></ul>
+<ul>Fax: <%=attorney.fax%></ul>
+<ul>Phone: <%=attorney.phone%></ul>
 </li>
 
+<div class="inline">
+<%= link_to "Show", attorney %>
+<%= link_to "Edit", edit_attorney_path(attorney) %>
+<%= link_to "Delete", attorney, method: :delete, data: { confirm: "are you sure?" } %>
+</div>
 <% end %> 
 <br>
 <div><%= link_to "New Attorney", new_attorney_path %> </div>

@@ -5,9 +5,18 @@ li {
 	list-style-type: none;
 }
 li ul {
-	margin: -10px;
+	margin: -20px;
 	display: inline; 
 }
 a {
-	margin: 20px;
+	margin: 10px;
+}
+
+.inline {
+	display: inline;
+	margin: 10px;
+}
+
+div {
+	margin-left: 10px;
 }
