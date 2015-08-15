@@ -6,5 +6,10 @@
 <ul><%=atty.address%></ul>
 <ul>Fax: <%=atty.fax%></ul>
 <ul>Phone: <%=atty.phone%></ul>
+<ul><%= link_to "Show", atty %></ul>
+
 </li>
+
 <% end %> 
+<br>
+<div><%= link_to "New Attorney", new_attorney_path %> </div>
