@@ -7,6 +7,7 @@ class AttorneysController < ApplicationController
 	end 
 	def new
 		@attorney = Attorney.new 
+		@attorney.address = "100 W. Randolph Street, 13th Floor, Chicago, IL 60601"
 	end 
 
 end
