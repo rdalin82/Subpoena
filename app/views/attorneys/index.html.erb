@@ -1,1 +1,10 @@
 <h1>Attorneys</h1>
+
+<% @attorneys.each do |atty| %> 
+<li>
+<ul><%=atty.name%></ul>
+<ul><%=atty.address%></ul>
+<ul>Fax: <%=atty.fax%></ul>
+<ul>Phone: <%=atty.phone%></ul>
+</li>
+<% end %> 
