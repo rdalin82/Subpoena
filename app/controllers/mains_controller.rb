@@ -1,7 +1,26 @@
 class MainsController < ApplicationController
 	def index
+	end 
+
+	def new
 		@providers = Provider.all
-		@attorneys = Attorney.all 
+		@attorneys = Attorney.all
+	end 
+
+	def create 
+		
+		@provider = Provider.find(params['providers'].to_i)
+		@attorney = Attorney.find(params['attorneys'].to_i)
+		f = File.new("#{Rails.root}/public/files/test", "w")
+		f.write("#{@provider.name} \n" + "#{@provider.firstlineaddress} \n" + "#{@provider.citystatezip}")
+		f.write("\n")
+		f.write("#{@attorney.name}, #{@attorney.address}, phone: #{@attorney.phone}" )
+		f.close 
+		redirect_to root_path
+	end 
+
+	def download
+		send_file "#{Rails.root}/public/files/test"
 	end 
 
 	private 
@@ -12,4 +31,8 @@ class MainsController < ApplicationController
 	def provider_params
 		params.require(:provider).permit(:name, :doctor, :firstlineaddress, :secondlineaddress, :citystatezip)
 	end
+
+	def main_params 
+		params.require('provider', 'attorney').permit('2', '1')
+	end 
 end

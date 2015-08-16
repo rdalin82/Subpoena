@@ -1,0 +1,20 @@
+<h1>New Subpoena</h1>
+<h2>Providers</h2>
+<form controller='mains' action='create' method='post'>
+<% @providers.each do |provider| %> 
+<select name="providers">
+	<option value=<%=provider.id%>><%=provider.name%></option>
+</select>
+<% end %> 
+<br>
+<div><%= link_to "New Provider", new_provider_path %> </div>
+<h2>Attorneys</h2>
+<% @attorneys.each do |attorney| %> 
+<select name="attorneys">
+	<option value=<%=attorney.id%>><%=attorney.name%></option>
+</select>
+<% end %> 
+<br>
+<div><%= link_to "New Attorney", new_attorney_path %> </div>
+<input type='submit' value='Submit'>
+</form>
