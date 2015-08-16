@@ -2,7 +2,15 @@
 <% @providers.each do |provider| %> 
 <li>
 <ul><%= provider.name %> </ul>
+
 </lil>
+<div class="inline">
+<%= link_to 'Show', provider %> 
+<%= link_to "Edit", edit_provider_path(provider) %>
+<%= link_to "Delete", provider, method: :delete, data: { confirm: "are you sure?" } %>
+</div>
 
 
 <% end %> 
+<br>
+<p><%= link_to "Enter a new provider", new_provider_path %> </p>

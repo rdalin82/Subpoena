@@ -18,6 +18,25 @@ class ProvidersController < ApplicationController
 		end
 	end 
 
+	def show
+		@provider = Provider.find(params[:id])
+	end 
+
+	def edit 
+		@provider = Provider.find(params[:id])
+	end 
+
+	def update 
+		@provider = Provider.find(params[:id])
+		@provider.update!(provider_params)
+		redirect_to providers_path
+	end 
+
+	def destroy
+		@provider = Provider.find(params[:id])
+		@provider.destroy!
+		redirect_to providers_path
+	end 
 
 
 	private

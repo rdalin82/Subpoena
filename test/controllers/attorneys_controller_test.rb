@@ -16,7 +16,8 @@ class AttorneysControllerTest < ActionController::TestCase
    end
 
    test "should get individual id" do 
-   	get :show, id: @attorney.id
+      attorney = Attorney.first 
+   	get :show, id: attorney.id
    	assert_response :success
    end 
 

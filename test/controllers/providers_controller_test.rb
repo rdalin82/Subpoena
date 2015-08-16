@@ -30,4 +30,31 @@ class ProvidersControllerTest < ActionController::TestCase
 			assert_redirected_to providers_path
 		end 
 	end 
+
+	test "should show individual providers" do 
+		provider = Provider.first
+		get :show, id: provider.id
+		assert_response :success 
+	end 
+
+	 test "should get edit page" do 
+	 	provider = Provider.first
+   	get :edit, id: provider.id
+   	assert_response :success
+   end 
+
+   test "should update article" do 
+   	provider = Provider.first 
+   	patch :update, id: provider.id, provider: {
+   		secondlineaddress: "Suite 1400"
+   	}
+   	assert_redirected_to providers_path
+   end 
+
+   test "should destroy new provider" do 
+   	provider = Provider.first 
+   	assert_difference('Provider.count', -1) do 
+   		delete :destroy, id: provider.id
+   	end 
+   end 
 end 
