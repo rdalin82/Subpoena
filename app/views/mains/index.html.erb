@@ -1,0 +1,9 @@
+<h1>Subpoena Generator</h1>
+<h2>Providers</h2>
+<% @providers.each do |provider| %> 
+<%= link_to provider.name, provider %> 
+<% end %> 
+<h2>Attorneys</h2>
+<% @attorneys.each do |attorney| %> 
+<%= link_to attorney.name, attorney %> 
+<% end %> 
