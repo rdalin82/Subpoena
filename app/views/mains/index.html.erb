@@ -1,9 +1,19 @@
 <h1>Subpoena Generator</h1>
 <h2>Providers</h2>
+
+
 <% @providers.each do |provider| %> 
-<%= link_to provider.name, provider %> 
+<select name="providers">
+	<option value="<%=provider%>"><%=provider.name%></option>
+</select>
 <% end %> 
+<br>
+<div><%= link_to "New Provider", new_provider_path %> </div>
 <h2>Attorneys</h2>
 <% @attorneys.each do |attorney| %> 
-<%= link_to attorney.name, attorney %> 
+<select name="attorneys">
+	<option value="<%=attorney%>"><%=attorney.name%></option>
+</select>
 <% end %> 
+<br>
+<div><%= link_to "New Attorney", new_attorney_path %> </div>
