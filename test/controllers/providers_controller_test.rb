@@ -19,4 +19,15 @@ class ProvidersControllerTest < ActionController::TestCase
 		get :new 
 		assert_response :success
 	end 
+
+	test "it should create a new provider" do 
+		assert_difference('Provider.count') do 
+			post :create, provider: { 
+				name: "foo", 
+				firstlineaddress: "100 Baz Lane",
+				citystatezip: "foobar, FB 60606" 
+			}
+			assert_redirected_to providers_path
+		end 
+	end 
 end 

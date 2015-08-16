@@ -1,3 +1,3 @@
 class Provider < ActiveRecord::Base
-	validates :name, :firstlineaddress, :secondlineaddress, :citystatezip, presence: true 
+	validates :name, :firstlineaddress, :citystatezip, presence: true 
 end

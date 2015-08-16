@@ -15,7 +15,7 @@ class AttorneysController < ApplicationController
 		@attorney = Attorney.new(attorney_params)
 
 		respond_to do |format|
-			if @attorney.save
+			if @attorney.save!
 				format.html { redirect_to attorneys_path, notice: "attorney was successfully created." }
 				format.json { render :show, status: created, location: @attorney }
 			else
