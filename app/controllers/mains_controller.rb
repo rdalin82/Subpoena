@@ -1,5 +1,8 @@
 class MainsController < ApplicationController
 	def index
+		@files = Dir.entries('public/files')
+		@files.delete('.')
+		@files.delete('..')
 	end 
 
 	def new
@@ -11,7 +14,7 @@ class MainsController < ApplicationController
 		
 		@provider = Provider.find(params['providers'].to_i)
 		@attorney = Attorney.find(params['attorneys'].to_i)
-		f = File.new("#{Rails.root}/public/files/test", "w")
+		f = File.new("#{Rails.root}/public/files/"+Time.now.to_s+@provider.name+ ".txt", "w")
 		f.write("#{@provider.name} \n" + "#{@provider.firstlineaddress} \n" + "#{@provider.citystatezip}")
 		f.write("\n")
 		f.write("#{@attorney.name}, #{@attorney.address}, phone: #{@attorney.phone}" )
@@ -20,7 +23,7 @@ class MainsController < ApplicationController
 	end 
 
 	def download
-		send_file "#{Rails.root}/public/files/test"
+		send_file "#{Rails.root}/public/files/"+params[:id]
 	end 
 
 	private 
