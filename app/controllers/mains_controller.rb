@@ -23,8 +23,8 @@ class MainsController < ApplicationController
 	end 
 
 	def download
-		send_file "#{Rails.root}/public/files/"+params[:id]
-	end 
+		send_file "#{Rails.root}/public/files/"+params[:id], :type => 'text/plain'
+	end
 
 	private 
 	def attorney_params
