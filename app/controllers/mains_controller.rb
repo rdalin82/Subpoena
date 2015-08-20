@@ -27,6 +27,7 @@ class MainsController < ApplicationController
 		s = s.gsub('<employer>', params['employer'])
 		s = s.gsub('<n1>', params['n1'])
 		s = s.gsub('<n2>', params['n2'])
+		s = s.gsub('<returndate>', params['returndate'])
 		File.write("#{Rails.root}/public/files/"+Time.now.to_s+@provider.name+ ".rtf", s)
 		
 		redirect_to root_path

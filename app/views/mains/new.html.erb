@@ -9,7 +9,7 @@
 </select>
 
 <br>
-<div><%= link_to "New Provider", new_provider_path %> </div>
+<div><%= link_to "Providers Page", providers_path %> </div>
 <h2>Attorneys</h2>
 
 <select name="attorneys">
@@ -17,11 +17,13 @@
 	<option value=<%=attorney.id%>><%=attorney.name%></option>
 	<% end %>
 </select>
- <div>Case Number: <input name='n1' size='5x1'> WC <input name='n2' size='10x1'></div><br>
+ <div><%= link_to "Attorney Page", attorneys_path %> </div><br>
+ <div>Case Number: <input name='n1' size='3x1'> WC <input name='n2' size='6x1'></div><br>
  <div>Employee: <input name='employee'></div><br>
  <div>Employer: <input name='employer'></div><br>
- <div>docket: <input name='docket'> </div>
+ <div>Docket: <input name='docket'> </div>
+ <div>Return Date: <input name='returndate'></div>
 <br>
-<div><%= link_to "New Attorney", new_attorney_path %> </div>
+
 <input type='submit' value='Submit'>
 </form>
