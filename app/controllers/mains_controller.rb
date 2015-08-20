@@ -22,10 +22,12 @@ class MainsController < ApplicationController
 		s = s.gsub('<providername', @provider.name)
 		s = s.gsub('<provideraddress>', @provider.firstlineaddress)
 		s = s.gsub('<providercitystatezip>', @provider.citystatezip)
+		s = s.gsub('<docket>', params['docket'])
+		s = s.gsub('<employee>', params['employee'])
+		s = s.gsub('<employer>', params['employer'])
+		s = s.gsub('<n1>', params['n1'])
+		s = s.gsub('<n2>', params['n2'])
 		File.write("#{Rails.root}/public/files/"+Time.now.to_s+@provider.name+ ".rtf", s)
-		#f.write("#{@provider.name} \n" + "#{@provider.firstlineaddress} \n" + "#{@provider.citystatezip}")
-		#f.write("\n")
-		#f.write("#{@attorney.name}, #{@attorney.address}, phone: #{@attorney.phone}" )
 		
 		redirect_to root_path
 	end 
