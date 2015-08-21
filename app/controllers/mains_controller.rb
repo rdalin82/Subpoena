@@ -14,20 +14,36 @@ class MainsController < ApplicationController
 		
 		@provider = Provider.find(params['providers'].to_i)
 		@attorney = Attorney.find(params['attorneys'].to_i)
-		f = File.read("#{Rails.root}/public/template/subpoena.rtf")
-		s = f
-		s = s.gsub('<attyname>', @attorney.name)
-		s = s.gsub('<attyaddress>', @attorney.address)
-		s = s.gsub('<attyphone>', @attorney.phone)
-		s = s.gsub('<providername', @provider.name)
-		s = s.gsub('<provideraddress>', @provider.firstlineaddress)
-		s = s.gsub('<providercitystatezip>', @provider.citystatezip)
-		s = s.gsub('<docket>', params['docket'])
-		s = s.gsub('<employee>', params['employee'])
-		s = s.gsub('<employer>', params['employer'])
-		s = s.gsub('<n1>', params['n1'])
-		s = s.gsub('<n2>', params['n2'])
-		s = s.gsub('<returndate>', params['returndate'])
+		s = File.read("#{Rails.root}/public/template/subpoena.rtf")
+		params_hash = {
+			'<attyname>' => @attorney.name, 
+			'<attyaddress>'=>@attorney.address,
+			'<attyphone>' => @attorney.phone, 
+			'<providername>' => @provider.name, 
+			'<provideraddress>' => @provider.firstlineaddress,
+			'<providercitystatezip>' => @provider.citystatezip, 
+			'<docket>' => params['docket'], 
+			'<employee>' => params['employee'],
+			'<employer>' => params['employer'], 
+			'<n1>' => params['n1'], 
+			'<n2>' => params['n2'],
+			'<returndate>' => params['returndate']
+		}
+
+		params_hash.each {|k,v| s = s.gsub(k, v) }
+		#s = f
+		#s = s.gsub('<attyname>', @attorney.name)
+		#s = s.gsub('<attyaddress>', @attorney.address)
+		#s = s.gsub('<attyphone>', @attorney.phone)
+		#s = s.gsub('<providername', @provider.name)
+		#s = s.gsub('<provideraddress>', @provider.firstlineaddress)
+		#s = s.gsub('<providercitystatezip>', @provider.citystatezip)
+		#s = s.gsub('<docket>', params['docket'])
+		#s = s.gsub('<employee>', params['employee'])
+		#s = s.gsub('<employer>', params['employer'])
+		#s = s.gsub('<n1>', params['n1'])
+		#s = s.gsub('<n2>', params['n2'])
+		#s = s.gsub('<returndate>', params['returndate'])
 		File.write("#{Rails.root}/public/files/"+Time.now.to_s+@provider.name+ ".rtf", s)
 		
 		redirect_to root_path
