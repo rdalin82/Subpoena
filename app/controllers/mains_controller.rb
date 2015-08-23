@@ -42,17 +42,4 @@ class MainsController < ApplicationController
 	def download
 		send_file "#{Rails.root}/public/files/"+params[:id], :type => 'application/msword'
 	end
-
-	private 
-	def attorney_params
-		params.require(:attorney).permit(:name, :address, :fax, :phone)
-	end 
-
-	def provider_params
-		params.require(:provider).permit(:name, :doctor, :firstlineaddress, :secondlineaddress, :citystatezip)
-	end
-
-	def main_params 
-		params.require('provider', 'attorney').permit('2', '1')
-	end 
 end
