@@ -5,7 +5,7 @@
 #   git config --global core.excludesfile '~/.gitignore_global'
 
 # Ignore test generated files
-public/files/*
+public/files/**
 
 # Ignore bundler config.
 /.bundle
