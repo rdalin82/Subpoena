@@ -39,7 +39,11 @@ class MainsController < ApplicationController
 	end 
 
 	def download
-		file = File.join(Rails.root,"/public/files/", params[:id]) 
+		if Rails.env.production? 
+			file = "./app/public/files/" + params[:id]
+		else 
+			file = "#{Rails.root}" + "/public/files/" + params[:id]
+    end 
 		send_file(file, 
 			filename: file, 
 			type:'application/msword',
