@@ -41,7 +41,7 @@ class MainsController < ApplicationController
 	def download
 		file = File.join(Rails.root,"/public/files/", params[:id]
 		begin 
-		send_file (file, 
+		send_file(file, 
 			:filename => file, 
 			:type =>'application/msword', 
 			:disposition => 'attachment', 
