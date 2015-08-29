@@ -2,6 +2,7 @@ require 'test_helper'
 
 class ProvidersControllerTest < ActionController::TestCase
 	def setup
+		sign_in users(:one)
 		@provider = Provider.new
 	end 
 

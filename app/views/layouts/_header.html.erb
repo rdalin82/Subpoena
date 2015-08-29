@@ -4,4 +4,7 @@
 <ul><%=link_to "Main", root_path %> </ul>
 <ul><%=link_to "Attorneys", attorneys_path %> </ul>
 <ul><%=link_to "Providers", providers_path %> </ul>
+<% if user_signed_in? %> 
+<ul><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %> </ul>
+<% end %> 
 </li>
