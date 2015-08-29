@@ -15,4 +15,20 @@
  */
 .inline {
 	display: inline;
+
+}
+
+.inline ul { 
+	font-family: arial; 
+	font-size: 1.3em;
+	margin:1px;
+	padding-left: 2px;
+	border: 3px gray solid;
+	text-align: center; 
+	background-color: white;
+}
+
+body {
+	margin-left: 50px;
+	background-color: #deeff5 ;
 }

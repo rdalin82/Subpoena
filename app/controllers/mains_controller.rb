@@ -1,6 +1,5 @@
-
-
 class MainsController < ApplicationController
+	before_action :authenticate_user!
 	def index
 		@files = Dir.entries('public/files')
 		@files.delete('.')

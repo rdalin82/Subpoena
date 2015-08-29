@@ -2,6 +2,7 @@ require 'test_helper'
 
 class AttorneysControllerTest < ActionController::TestCase
 	def setup
+      sign_in users(:one)
 		@attorney = attorneys(:one)
 	end 
 
