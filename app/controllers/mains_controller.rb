@@ -39,20 +39,14 @@ class MainsController < ApplicationController
 	end 
 
 	def download
-		file = File.join(Rails.root,"/public/files/", params[:id]
-		begin 
+		file = File.join(Rails.root,"/public/files/", params[:id]) 
 		send_file(file, 
-			:filename => file, 
-			:type =>'application/msword', 
-			:disposition => 'attachment', 
-			:url_based_filename => true, 
-			:stream => true, 
-			:buffer_size => 4096, 
-			:status => 200
+			filename: file, 
+			type:'application/msword',
+			stream: true, 
+			buffer_size: 4096
+
 			)
-		rescue Exception => e 
-			puts e.message 
-			puts e.backtrace.inspect
-		end 
+
 	end
 end
