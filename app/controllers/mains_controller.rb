@@ -28,13 +28,14 @@ class MainsController < ApplicationController
 			'<employer>' => params['employer'], 
 			'<n1>' => params['n1'], 
 			'<n2>' => params['n2'],
-			'<returndate>' => params['returndate']
-		}
+			'<returndate>' => params['returndate'], 
+			'<todaysdate>' => params['todaysdate']
+			}
 
 		params_hash.each {|k,v| s = s.gsub(k, v) }
 		
-		File.write("#{Rails.root}/public/files/"+Time.now.to_s+@provider.name+ ".rtf", s)
-		
+		File.write("#{Rails.root}/public/files/"+rand(0...100).to_s+@provider.name+ ".rtf", s)
+
 		redirect_to root_path
 	end 
 
