@@ -1,7 +1,7 @@
 class MainsController < ApplicationController
 	before_action :authenticate_user!
 	def index
-		@files = Dir.entries('app/public/files')
+		@files = Dir.entries('./public/files')
 		@files.delete('.')
 		@files.delete('..')
 	end 
@@ -39,6 +39,6 @@ class MainsController < ApplicationController
 	end 
 
 	def download
-		send_file File.join(Rails.root, "/public/files/", params[:id]), :type => 'application/msword'
+		send_file File.join(Rails.root,"/public/files/", params[:id]), :type => 'application/msword'
 	end
 end
