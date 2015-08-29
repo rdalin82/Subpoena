@@ -39,6 +39,11 @@ class MainsController < ApplicationController
 	end 
 
 	def download
+		begin 
 		send_file File.join(Rails.root,"/public/files/", params[:id]), filename: "#{params[:id]}", type:'application/msword'
+		rescue Exception => e 
+			puts e.message 
+			puts e.backtrace.inspect
+		end 
 	end
 end
