@@ -1,7 +1,7 @@
 class MainsController < ApplicationController
 	before_action :authenticate_user!
 	def index
-		@files = Dir.entries('/app/public/files')
+		@files = Dir.entries('app/public/files')
 		@files.delete('.')
 		@files.delete('..')
 	end 
@@ -33,12 +33,12 @@ class MainsController < ApplicationController
 
 		params_hash.each {|k,v| s = s.gsub(k, v) }
 		
-		File.write("#{Rails.root}/app/public/files/"+Time.now.to_s+@provider.name+ ".rtf", s)
+		File.write("#{Rails.root}/public/files/"+Time.now.to_s+@provider.name+ ".rtf", s)
 		
 		redirect_to root_path
 	end 
 
 	def download
-		send_file "#{Rails.root}/app/public/files/"+params[:id], :type => 'application/msword'
+		send_file File.join(Rails.root, "/public/files/", params[:id]), :type => 'application/msword'
 	end
 end
