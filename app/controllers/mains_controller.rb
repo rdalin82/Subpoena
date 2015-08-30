@@ -1,9 +1,13 @@
 class MainsController < ApplicationController
 	before_action :authenticate_user!
 	def index
-		@files = Dir.entries('public/files')
-		@files.delete('.')
-		@files.delete('..')
+		#if !Rails.env.production? 
+			@files = Dir.entries("public/template")
+			@files.delete('.')
+			@files.delete('..')
+		#else 
+		#	@files = Dir.entries("./app/public/files")
+		#end 
 	end 
 
 	def new
@@ -33,17 +37,17 @@ class MainsController < ApplicationController
 			}
 
 		params_hash.each {|k,v| s = s.gsub(k, v) }
-		
-		File.write("#{Rails.root}/public/files/"+rand(0...100).to_s+@provider.name+ ".rtf", s)
+		file_path = "#{Rails.root}/public/template/"+ @provider.name+ ".rtf"
+		file = File.write(file_path, s)
 
 		redirect_to root_path
 	end 
 
 	def download
 		if Rails.env.production? 
-			file = "./app/public/files/" + params[:id]
+			file = "./app/public/template/" + params[:id]
 		else 
-			file = "#{Rails.root}" + "/public/files/" + params[:id]
+			file = "#{Rails.root}" + "/public/template/" + params[:id]
     end 
 		send_file(file, 
 			filename: file, 
