@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get '/new' => 'mains#new'
   post '/create' => 'mains#create'
   get '/download' => 'mains#download'
+  
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

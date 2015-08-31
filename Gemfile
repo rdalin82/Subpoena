@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 gem 'devise' 
+gem 'dropbox-sdk'
 gem 'whenever', :require => false 
 gem 'thin'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

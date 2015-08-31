@@ -1,3 +1,4 @@
+require 'dropbox_sdk'
 class MainsController < ApplicationController
 	before_action :authenticate_user!
 	def index
@@ -37,8 +38,10 @@ class MainsController < ApplicationController
 			}
 
 		params_hash.each {|k,v| s = s.gsub(k, v) }
-		file_path = "#{Rails.root}/public/template/"+ @provider.name+ ".rtf"
-		file = File.write(file_path, s)
+		#client = DropboxClient.new(ACCESS_TOKEN["access_token"])
+		client = DropboxClient.new('v_pKbd4zrxkAAAAAAAAElIiq3FMlqUAP7AUwUiCIaqw')
+		response = client.put_file('#{params["employee"]} ' + @provider.name + ".rtf", s)
+		flash[:notice] = response.inspect
 
 		redirect_to root_path
 	end 
