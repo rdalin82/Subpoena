@@ -13,7 +13,14 @@ Rails.application.routes.draw do
   get '/new' => 'mains#new'
   post '/create' => 'mains#create'
   get '/download' => 'mains#download'
-  
+  #dropbox
+  get '/dropbox_authorize' => 'dashboards#authorize', as: 'dropbox_authorize'
+  get '/dropbox_unauthorize' => 'dashboards#unauthorize', as: 'dropbox_unauthorize'
+  get '/dropbox_path_change' => 'dashboards#dropbox_path_change', as: 'dropbox_path_change'
+  get '/dropbox_callback' => 'dashboards#dropbox_callback', as: 'dropbox_callback'
+  get '/dropbox_download' => 'dashboards#dropbox_download', as: 'dropbox_download'
+  post '/dropbox_upload' => 'dashboards#upload', as: 'upload'
+  post '/dropbox_search' => 'dashboards#search', as: 'search'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -10,6 +10,10 @@
 <body>
 	<p class="notice"><%= notice %></p>
 	<p class="alert"><%= alert %></p>
+<% unless @dropbox %>
+<%= link_to image_tag("dropbox_connect.png"), dropbox_authorize_path, {:class => "dropbox-connect"} %>
+<% else %>
+<% end%>
 <%= render "layouts/header" %>
 <%= yield %>
 

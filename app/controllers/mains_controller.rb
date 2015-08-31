@@ -1,4 +1,6 @@
-require 'dropbox_sdk'
+DROPBOX_APP_KEY = "uf1rqukssytvnd4" #replace with your own app key
+DROPBOX_APP_KEY_SECRET = "5hjnoquh1xvdu05" #replace with your own key secret
+DROPBOX_APP_MODE = "dropbox"
 class MainsController < ApplicationController
 	before_action :authenticate_user!
 	def index
@@ -38,11 +40,10 @@ class MainsController < ApplicationController
 			}
 
 		params_hash.each {|k,v| s = s.gsub(k, v) }
-		#client = DropboxClient.new(ACCESS_TOKEN["access_token"])
-		client = DropboxClient.new('v_pKbd4zrxkAAAAAAAAElIiq3FMlqUAP7AUwUiCIaqw')
-		response = client.put_file('#{params["employee"]} ' + @provider.name + ".rtf", s)
-		flash[:notice] = response.inspect
-
+		dbsession = DropboxSession.deserialize(current_user.dropbox_session)
+		client = DropboxClient.new(dbsession)
+		response = client.put_file("#{params_hash['<employee>']}" + @provider.name + ".rtf", s)
+		
 		redirect_to root_path
 	end 
 
