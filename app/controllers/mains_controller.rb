@@ -4,10 +4,10 @@ DROPBOX_APP_MODE = "dropbox"
 class MainsController < ApplicationController
 	before_action :authenticate_user!
 	def index
-
 	end 
 
 	def new
+		@dropbox = current_user.dropbox_session if current_user.dropbox_session
 		@providers = Provider.all
 		@attorneys = Attorney.all
 	end 

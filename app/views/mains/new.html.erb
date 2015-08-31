@@ -1,5 +1,9 @@
 <h1>New Subpoena</h1>
 <h2>Providers</h2>
+<% unless @dropbox %>
+<%= link_to image_tag("dropbox_connect.png"), dropbox_authorize_path, {:class => "dropbox-connect"} %>
+<% else %>
+<% end%>
 <form controller='mains' action='create' method='post'>
 
 <select name="providers">

@@ -1,5 +1,8 @@
 <h1>Subpoena Generator</h1>
 <h2>Files</h2>
-
+<% unless @dropbox %>
+<%= link_to image_tag("dropbox_connect.png"), dropbox_authorize_path, {:class => "dropbox-connect"} %>
+<% else %>
+<% end%>
 
 <div><%= link_to "New Request", new_path %> </div>
