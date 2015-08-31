@@ -4,13 +4,7 @@ DROPBOX_APP_MODE = "dropbox"
 class MainsController < ApplicationController
 	before_action :authenticate_user!
 	def index
-		#if !Rails.env.production? 
-			@files = Dir.entries("public/template")
-			@files.delete('.')
-			@files.delete('..')
-		#else 
-		#	@files = Dir.entries("./app/public/files")
-		#end 
+
 	end 
 
 	def new
@@ -47,19 +41,4 @@ class MainsController < ApplicationController
 		redirect_to root_path
 	end 
 
-	def download
-		if Rails.env.production? 
-			file = "./app/public/template/" + params[:id]
-		else 
-			file = "#{Rails.root}" + "/public/template/" + params[:id]
-    end 
-		send_file(file, 
-			filename: file, 
-			type:'application/msword',
-			stream: true, 
-			buffer_size: 4096
-
-			)
-
-	end
 end
