@@ -1,11 +1,11 @@
 
 
-class SubpoenaParser < Parser 
-		def initialize(params)
+class SubpoenaParser 
+		def initialize(params, args={})
 			@params = params
-			@provider = Provider.find(params['providers'].to_i)
-			@attorney = Attorney.find(params['attorneys'].to_i)
-			super 
+			@provider = args[:provider] || Provider.find(params['providers'].to_i)
+			@attorney = args[:attorney] || Attorney.find(params['attorneys'].to_i)
+			@params_hash = {}
 		end 
 
 		def parse
@@ -17,6 +17,7 @@ class SubpoenaParser < Parser
 		private
 
 		def params_hash 
+			
 			params_hash = {
 			'<attyname>' => @attorney.name, 
 			'<attyaddress>'=>@attorney.address,
@@ -31,6 +32,6 @@ class SubpoenaParser < Parser
 			'<n2>' => @params['n2'],
 			'<returndate>' => @params['returndate'], 
 			'<todaysdate>' => @params['todaysdate']
-			}
+			}  if @params_hash.empty? 
 		end
 	end 
