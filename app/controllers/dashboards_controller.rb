@@ -1,4 +1,4 @@
-require 'dropbox_sdk'
+
 class DashboardsController < ApplicationController
 	def authorize
 		dbsession = DropboxSession.new(DROPBOX_APP_KEY, DROPBOX_APP_KEY_SECRET)
@@ -25,6 +25,23 @@ class DashboardsController < ApplicationController
 		session[:dropbox_session] = nil
 		current_user.dropbox_session = nil
 		current_user.save!
+		redirect_to root_path
 	end
 
+	def home
+		if current_user.dashboard
+	 		@dashboard = current_user.dashboard
+	 		@dropbox = current_user.dropbox_session if current_user.dropbox_session
+		end
+		 #First, find the dashboard, then find the current user's dropbox_session from the database
+	  if current_user.dropbox_session
+	 		dbsession = DropboxSession.deserialize(current_user.dropbox_session)
+ 			# create the dropbox client object
+ 			@client = DropboxClient.new(dbsession, DROPBOX_APP_MODE).metadata('/')
+	 end
+
+ 	 render layout: "dashboard"
+	 else
+ 	 		redirect_to new_dashboard_url
+ 	 end
 end

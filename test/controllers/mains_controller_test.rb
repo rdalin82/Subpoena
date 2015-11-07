@@ -13,4 +13,9 @@ class MainsControllerTest < ActionController::TestCase
 		get :new
 		assert_response :success 
 	end 
+
+	test 'should redirect on create' do
+		post :create
+		assert_response :success {'providers'=> 1, 'attorneys'=>1 }
+	end 
 end
