@@ -2,7 +2,6 @@
  <% if @provider.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@provider.errors.count, "error") %> prohibited this provider from being saved:</h2>
-
       <ul>
       <% @provider.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -10,24 +9,24 @@
       </ul>
     </div>
   <% end %>
- <div class="field">
+ <div class="form-group">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
-   <div class="field">
+   <div class="form-group">
     <%= f.label :doctor %><br>
     <%= f.text_field :doctor %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :firstlineaddress %><br>
     <%= f.text_area :firstlineaddress, size:'60x1' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :citystatezip %><br>
     <%= f.text_field :citystatezip %>
   </div>
-  <div class="actions">
+  <div class="form-group">
     <%= f.submit %>
   </div>
-  <% end %> 
+<% end %> 
