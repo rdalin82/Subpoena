@@ -1,9 +1,8 @@
 <h1>Attorneys</h1>
 
 <% @attorneys.each do |attorney| %> 
-<li>
-<ul><%=attorney.name%></ul>
-</li>
+<p><%=attorney.name%></p>
+
 
 <div class="inline">
 <%= link_to "Show", attorney %>
