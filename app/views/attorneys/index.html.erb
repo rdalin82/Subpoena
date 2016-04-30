@@ -1,12 +1,11 @@
 <h1>Attorneys</h1>
-
 <% @attorneys.each do |attorney| %> 
-<p><%=attorney.name%></p>
-<div>
-<%= link_to "Show", attorney %>
-<%= link_to "Edit", edit_attorney_path(attorney) %>
-<%= link_to "Delete", attorney, method: :delete, data: { confirm: "are you sure?" } %>
-</div>
+  <p><%=attorney.name%></p>
+  <div>
+    <%= link_to "Show", attorney %>
+    <%= link_to "Edit", edit_attorney_path(attorney) %>
+    <%= link_to "Delete", attorney, method: :delete, data: { confirm: "are you sure?" } %>
+  </div>
 <% end %> 
 <br>
-<div><%= link_to "New Attorney", new_attorney_path %> </div>
+<p><%= link_to "New Attorney", new_attorney_path %> </p>

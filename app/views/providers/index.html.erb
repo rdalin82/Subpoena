@@ -1,14 +1,11 @@
 <h1>Providers List</h1>
 <% @providers.each do |provider| %> 
 <p><%= provider.name %> </p>
-
 <div>
 <%= link_to 'Show', provider %> 
 <%= link_to "Edit", edit_provider_path(provider) %>
 <%= link_to "Delete", provider, method: :delete, data: { confirm: "are you sure?" } %>
 </div>
-
-
 <% end %> 
 <br>
 <p><%= link_to "Enter a new provider", new_provider_path %> </p>
