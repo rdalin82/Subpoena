@@ -1,9 +1,7 @@
 <h1>Providers List</h1>
 <% @providers.each do |provider| %> 
-<li>
-<ul><%= provider.name %> </ul>
+<p><%= provider.name %> </p>
 
-</lil>
 <div class="inline">
 <%= link_to 'Show', provider %> 
 <%= link_to "Edit", edit_provider_path(provider) %>
