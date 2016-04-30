@@ -2,9 +2,7 @@
 
 <% @attorneys.each do |attorney| %> 
 <p><%=attorney.name%></p>
-
-
-<div class="inline">
+<div>
 <%= link_to "Show", attorney %>
 <%= link_to "Edit", edit_attorney_path(attorney) %>
 <%= link_to "Delete", attorney, method: :delete, data: { confirm: "are you sure?" } %>
