@@ -1,3 +1,4 @@
+require "dropbox_sdk"
 
 class DashboardsController < ApplicationController
 	def authorize

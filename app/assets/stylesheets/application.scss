@@ -10,25 +10,7 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
- *= require_self
  */
-.inline {
-	display: inline;
+@import "bootstrap-sprockets";
+@import "bootstrap";
 
-}
-
-.inline ul { 
-	font-family: arial; 
-	font-size: 1.3em;
-	margin:1px;
-	padding-left: 2px;
-	border: 3px gray solid;
-	text-align: center; 
-	background-color: white;
-}
-
-body {
-	margin-left: 50px;
-	background-color: #deeff5 ;
-}

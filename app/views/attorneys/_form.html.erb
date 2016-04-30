@@ -1,6 +1,6 @@
- <%= form_for(@attorney) do |f| %>
+ <%= form_for@attorney, html: {class: "form-horizontal"} do |f| %>
  <% if @attorney.errors.any? %>
-    <div id="error_explanation">
+    <div id="form-group">
       <h2><%= pluralize(@attorney.errors.count, "error") %> prohibited this attorney from being saved:</h2>
 
       <ul>
@@ -10,23 +10,23 @@
       </ul>
     </div>
   <% end %>
- <div class="field">
+ <div class="form-group">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :address %><br>
     <%= f.text_area :address, size: '60x1' %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :phone %><br>
     <%= f.text_field :phone %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :fax %><br>
     <%= f.text_field :fax %>
   </div>
-  <div class="actions">
+  <div >
     <%= f.submit %>
   </div>
   <% end %> 
