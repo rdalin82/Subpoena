@@ -3,12 +3,14 @@
   <div class="panel-heading">Provider</div>
     <div class="panel-body">
       <p><%= @provider.name %><br>
-      <%= @provider.doctor %><br>
-      <%= @provider.firstlineaddress %><br>
-      <% if !@provider.secondlineaddress.nil? %> 
-      <%= @provider.secondlineaddress %><br>
-      <% end %> 
-      <%= @provider.citystatezip %></p><br>
+        <% if !@provider.doctor.nil? %>    
+        <%= @provider.doctor %><br>
+        <% end %> 
+        <%= @provider.firstlineaddress %><br>
+        <% if !@provider.secondlineaddress.nil? %> 
+        <%= @provider.secondlineaddress %><br>
+        <% end %> 
+        <%= @provider.citystatezip %></p><br>
     </div>
 </div>
 <%= link_to "Back", providers_path, class: "btn btn-lg btn-success" %> 
