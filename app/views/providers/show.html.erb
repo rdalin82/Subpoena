@@ -3,9 +3,6 @@
   <div class="panel-heading">Provider</div>
     <div class="panel-body">
       <p><%= @provider.name %><br>
-        <% if !@provider.doctor.nil? %>    
-        <%= @provider.doctor %><br>
-        <% end %> 
         <%= @provider.firstlineaddress %><br>
         <% if !@provider.secondlineaddress.nil? %> 
         <%= @provider.secondlineaddress %><br>
