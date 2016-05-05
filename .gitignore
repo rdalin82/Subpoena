@@ -23,4 +23,3 @@
 !.elasticbeanstalk/*.global.yml
 config/dropbox_config.rb
 /config/dropbox_config.rb
-config/initializers/dropbox_config.rb
