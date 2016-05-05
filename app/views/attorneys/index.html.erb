@@ -1,11 +1,13 @@
 <h1>Attorneys</h1>
 <% @attorneys.each do |attorney| %> 
   <p><%=attorney.name%></p>
-  <div>
-    <%= link_to "Show", attorney %>
-    <%= link_to "Edit", edit_attorney_path(attorney) %>
-    <%= link_to "Delete", attorney, method: :delete, data: { confirm: "are you sure?" } %>
+  <div class="btn-group">
+    <%= link_to "Show", attorney, class: "btn btn-lg btn-primary" %>
+    <%= link_to "Edit", edit_attorney_path(attorney), class: "btn btn-lg btn-primary" %>
+    <%= link_to "Delete", attorney, method: :delete, data: { confirm: "are you sure?" }, class: "btn btn-lg btn-danger" %>
   </div>
 <% end %> 
 <br>
-<p><%= link_to "New Attorney", new_attorney_path %> </p>
+<div class="btn-group">
+  <p><%= link_to "New Attorney",  new_attorney_path, class: "btn btn-lg btn-success" %> </p>
+</div>

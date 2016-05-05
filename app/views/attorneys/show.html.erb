@@ -1,7 +1,11 @@
-<h1>Attorney</h1>
-<p><%=@attorney.name%></p>
-<p><%=@attorney.address%></p>
-<p>Fax: <%=@attorney.fax%></p>
-<p>Phone: <%=@attorney.phone%></p>
-<br>
-<p><%= link_to 'Back', attorneys_path %> </p>
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Provider</div>
+    <div class="panel-body">
+      <p><%=@attorney.name%><br>
+      <%=@attorney.address%><br>
+      <%=@attorney.fax%><br>
+      <%=@attorney.phone%></p>
+    </div>
+</div>
+<p><%= link_to 'Back', attorneys_path, class: "btn btn-lg btn-success" %> </p>

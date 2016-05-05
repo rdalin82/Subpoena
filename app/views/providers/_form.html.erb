@@ -9,24 +9,15 @@
       </ul>
     </div>
   <% end %>
- <div class="form-group">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-   <div class="form-group">
-    <%= f.label :doctor %><br>
-    <%= f.text_field :doctor %>
-  </div>
-  <div class="form-group">
-    <%= f.label :firstlineaddress %><br>
-    <%= f.text_area :firstlineaddress, size:'60x1' %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :citystatezip %><br>
-    <%= f.text_field :citystatezip %>
-  </div>
-  <div class="form-group">
-    <%= f.submit %>
+ <div class="input-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control" %><br>
+    <%= f.label :doctor %>
+    <%= f.text_field :doctor, class: "form-control"  %><br>
+    <%= f.label :firstlineaddress %>
+    <%= f.text_area :firstlineaddress, size:'60x1', class: "form-control"  %><br>
+    <%= f.label :citystatezip %>
+    <%= f.text_field :citystatezip, class: "form-control"  %><br>
+    <%= f.submit "Submit", class: "btn btn-default btn-success" %>
   </div>
 <% end %> 

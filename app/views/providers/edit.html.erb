@@ -1,4 +1,6 @@
 <h1>Edit Provider Info</h1>
 <%= render 'form' %> 
-<%= link_to 'Show', @provider %> 
-<%= link_to 'Back', providers_path %> 
+<div class="btn-group">
+  <%= link_to 'Show', @provider, class: "btn btn-lg btn-primary" %> 
+  <%= link_to 'Back', providers_path, class: "btn btn-lg btn-primary" %> 
+</div>
