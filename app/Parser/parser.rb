@@ -1,20 +1,14 @@
 class Parser
-	def initialize(params)
-		@params = params 
-		@params_hash = {}
-	end
+  def initialize(params)
+    @params = params 
+    @params_hash = {}
+  end
 
-		def parse
+  def parse
+  end 
 
-		end 
+  private 
 
-		private 
-
-		def params_hash
-		end
-	end
-
-	
-
-	class NoticeOfFilingParser
-	end 
+  def params_hash
+  end
+end
