@@ -2,10 +2,12 @@ class ProvidersController < ApplicationController
   before_action :authenticate_user!
   def index
     @providers = Provider.all
-  end 
+  end
+
   def new
     @provider = Provider.new 
   end 
+
   def create 
     @provider = Provider.new(provider_params)
     respond_to do |format|
@@ -40,6 +42,7 @@ class ProvidersController < ApplicationController
   end 
 
   private
+  
   def provider_params
     params.require(:provider).permit(:name, :doctor, :firstlineaddress, :secondlineaddress, :citystatezip)
   end 
