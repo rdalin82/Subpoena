@@ -9,6 +9,12 @@ Ruby version: 2.2.1
 
 
 To Run: 
+  touch config/initializers/dropbox_config.rb and add the following info: 
+    require "dropbox_sdk"
+    DROPBOX_APP_KEY = [your_key] #replace with your own app key
+    DROPBOX_APP_KEY_SECRET = "[your_secret]" #replace with your own key secret
+    DROPBOX_APP_MODE = "dropbox"
+then: 
   bundle install
   rake db:migrate 
   rails s
