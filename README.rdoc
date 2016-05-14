@@ -1,4 +1,4 @@
-Travis CI: [![Build Status](https://travis-ci.org/rdalin82/Subpoena.svg?branch=master)](https://travis-ci.org/rdalin82/Subpoena)
+Travis CI: {<img src="https://travis-ci.org/rdalin82/Subpoena.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/rdalin82/Subpoena]
 
 
 == README
